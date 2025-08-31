@@ -1,0 +1,23 @@
+@use 'helpers' as *;
+body {
+  @include fluid-text(16, 14);
+
+  color: #fff;
+  font-family: var(--font-family-base);
+  transition: all 0.2s;
+  min-width: rem(316);
+
+  &::selection {
+    background-color: var(--color-ligth);
+  }
+}
+
+h1 {
+  font-size: rem(46);
+  font-weight: 600;
+}
+
+h2 {
+  font-size: rem(42);
+  font-weight: 700;
+}
