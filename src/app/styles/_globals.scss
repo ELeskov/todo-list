@@ -1,4 +1,15 @@
 @use 'helpers' as *;
+
+* {
+  &::-webkit-scrollbar {
+    width: rem(4);
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: rem(4);
+  }
+}
+
 body {
   @include fluid-text(16, 14);
 
@@ -8,7 +19,7 @@ body {
   min-width: rem(316);
 
   &::selection {
-    background-color: var(--color-ligth);
+    background-color: rgb(197, 197, 197);
   }
 }
 
@@ -20,4 +31,8 @@ h1 {
 h2 {
   font-size: rem(42);
   font-weight: 700;
+}
+
+[data-container='todo'] {
+  width: clamp(300px, 40vw, 400px);
 }
