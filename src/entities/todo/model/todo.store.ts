@@ -8,6 +8,8 @@ type TodoStore = {
   addTodo: (text: string) => void
   deleteTodo: (id: string) => void
   toggleTodo: (id: string) => void
+  setTodos: (todos: ITodo[]) => void
+  clearActive: () => void
   clearCompleted: () => void
   clearAll: () => void
 }
@@ -36,6 +38,14 @@ export const useTodoStore = create<TodoStore>()(
           todos: state.todos.map((todo) =>
             todo.id === id ? { ...todo, isCompleted: !todo.isCompleted } : todo,
           ),
+        })),
+      setTodos: (newTodos: ITodo[]) =>
+        set(() => ({
+          todos: newTodos,
+        })),
+      clearActive: () =>
+        set((state) => ({
+          todos: state.todos.filter((todo) => todo.isCompleted),
         })),
       clearCompleted: () =>
         set((state) => ({
